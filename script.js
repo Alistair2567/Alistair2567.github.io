@@ -64,7 +64,15 @@
       link.toggleAttribute("aria-current", active);
     });
   };
+  const bottomTolerance = 16;
   const update = () => {
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - bottomTolerance) {
+      const lastSection = sections[sections.length - 1];
+      if (lastSection) {
+        activate(lastSection.id);
+        return;
+      }
+    }
     let section = sections[0];
     sections.forEach((item) => { if (item.getBoundingClientRect().top <= 170) section = item; });
     if (section) activate(section.id);
