@@ -27,3 +27,8 @@
 @media (max-width:720px) { .gameplay-hero { display:block; min-height:84svh; aspect-ratio:auto; overflow:hidden; background:var(--media); } .gameplay-hero-video { position:absolute; inset:0; z-index:0; order:initial; width:100%; height:100%; aspect-ratio:auto; object-fit:cover; object-position:60% center; } .gameplay-hero-overlay { display:block; z-index:1; background:linear-gradient(90deg,rgba(8,10,14,.9) 0%,rgba(8,10,14,.72) 58%,rgba(8,10,14,.34) 100%),linear-gradient(0deg,rgba(8,10,14,.48) 0%,rgba(8,10,14,.08) 58%,rgba(8,10,14,.32) 100%); } .gameplay-hero-content { position:relative; z-index:2; display:flex; height:100%; align-items:center; background:transparent; pointer-events:none; } .gameplay-hero-copy { position:static; max-width:31rem; padding:72px 0 52px; color:#f9f6ef; pointer-events:auto; } }
 
 .pdf-link { font-size:13px; font-weight:700; color:var(--gold-deep); border-bottom:1px solid rgba(166,124,46,.4); transition:color .15s ease,border-color .15s ease; } .pdf-link:hover { color:var(--ink); border-color:var(--ink); }
+.evidence-note { font-size:14px; line-height:1.65; }
+.active-skill-demo { margin-top:34px; padding-top:28px; border-top:1px solid var(--line); }
+.active-skill-demo > p { max-width:900px; }
+.active-skill-demo > h3 { text-wrap:balance; }
+.active-skill-demo .media-card { margin:0; }
