@@ -86,7 +86,8 @@ a:focus-visible,button:focus-visible,video:focus-visible { outline:2px solid var
 .environment-feature { width:min(100%,980px); margin:24px auto 0; }
 .mechanic-takeaway { margin:24px 0 0; color:#494c52; font-size:16px; line-height:1.65; }
 .crystal-media-pair { grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; }
-.project-reel { width:min(100%,980px); margin:28px 0 0; scroll-margin-top:calc(var(--header-h) + 55px); }
+.project-cover-facts { padding-block:24px 32px; }
+.project-cover-facts .project-meta { margin-top:0; }
 .crystal-media-pair figcaption strong,.crystal-media-pair figcaption span { display:block; }
 .crystal-media-pair figcaption span { margin-top:6px; color:var(--muted); font-size:14px; font-weight:400; line-height:1.6; }
 .domain-rules { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; margin:24px 0 0; padding-top:22px; border-top:1px solid var(--line); }
