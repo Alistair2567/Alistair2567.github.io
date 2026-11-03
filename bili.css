@@ -1,0 +1,232 @@
+/* ============================================================
+ * bili.css — 配合 bili.js 使用
+ * 让封面按钮与 B 站 iframe 完全沿用原来 <video> 的位置和尺寸，
+ * 不改变任何原有版式。
+ * ============================================================ */
+
+/* ---------- 通用：封面按钮 ---------- */
+
+.bili-poster {
+  position: relative;
+  display: grid !important;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background-color: var(--media, #111318);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.bili-poster::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(8, 10, 14, .16);
+  transition: background-color .18s ease;
+}
+
+.bili-poster:hover::after { background: rgba(8, 10, 14, .06); }
+
+.bili-poster::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 60px;
+  height: 60px;
+  transform: translate(-50%, -50%);
+  border: 1.5px solid rgba(255, 255, 255, .62);
+  border-radius: 50%;
+  background: rgba(10, 12, 16, .58);
+  backdrop-filter: blur(4px);
+  transition: transform .18s ease, background-color .18s ease, border-color .18s ease;
+}
+
+.bili-poster:hover::before {
+  transform: translate(-50%, -50%) scale(1.07);
+  border-color: rgba(231, 185, 101, .9);
+  background: rgba(143, 91, 22, .82);
+}
+
+/* 三角形播放图标 */
+.bili-play {
+  position: relative;
+  z-index: 3;
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+  border-style: solid;
+  border-width: 11px 0 11px 19px;
+  border-color: transparent transparent transparent #fff;
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, .5));
+  pointer-events: none;
+}
+
+/* ---------- 各容器内的尺寸对齐 ---------- */
+
+.media-card .bili-poster,
+.media-card iframe.bili-embed {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  display: block;
+}
+
+.support-media .bili-poster,
+.support-media iframe.bili-embed {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid #272a30;
+  border-radius: 8px;
+  display: block;
+}
+
+.boss-video-card .bili-poster,
+.boss-video-card iframe.bili-embed {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 5px;
+  display: block;
+}
+
+.transform-story-media .bili-poster,
+.transform-story-media iframe.bili-embed {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  display: block;
+}
+
+/* 与 .media-tall video 的高度规则保持一致 */
+.media-tall .bili-poster,
+.media-tall iframe.bili-embed {
+  min-height: 320px;
+}
+
+@media (max-width: 720px) {
+  .media-tall .bili-poster,
+  .media-tall iframe.bili-embed { min-height: 0; }
+}
+
+iframe.bili-embed {
+  background: #111318;
+  object-fit: contain;
+}
+
+/* ---------- 首屏背景视频：静态封面 + 播放按钮 ---------- */
+
+.gameplay-hero.bili-hero {
+  background-image: var(--bili-hero-poster);
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 720px) {
+  .gameplay-hero.bili-hero { background-position: 60% center; }
+}
+
+.bili-hero-play {
+  position: absolute;
+  right: 26px;
+  bottom: 24px;
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 18px 11px 15px;
+  border: 1px solid rgba(255, 255, 255, .44);
+  border-radius: 999px;
+  background: rgba(10, 13, 19, .62);
+  backdrop-filter: blur(9px);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: .01em;
+  cursor: pointer;
+  transition: border-color .18s ease, background-color .18s ease, transform .18s ease;
+}
+
+.bili-hero-play:hover {
+  border-color: rgba(231, 185, 101, .85);
+  background: rgba(143, 91, 22, .8);
+  transform: translateY(-1px);
+}
+
+.bili-hero-play .bili-play {
+  margin-left: 1px;
+  border-width: 7px 0 7px 11px;
+}
+
+@media (max-width: 720px) {
+  .bili-hero-play { right: 16px; bottom: 16px; padding: 9px 15px 9px 13px; font-size: 12px; }
+}
+
+/* ---------- 弹层 ---------- */
+
+.bili-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: clamp(14px, 4vw, 48px);
+  background: rgba(6, 8, 12, .93);
+  backdrop-filter: blur(7px);
+  animation: bili-fade .18s ease-out;
+}
+
+@keyframes bili-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.bili-lightbox-stage {
+  width: min(100%, 1120px);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #000;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, .5);
+}
+
+.bili-lightbox-iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.bili-lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, .3);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .1);
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color .16s ease;
+}
+
+.bili-lightbox-close:hover { background: rgba(255, 255, 255, .22); }
+
+@media (prefers-reduced-motion: reduce) {
+  .bili-poster::before,
+  .bili-poster::after,
+  .bili-hero-play,
+  .bili-lightbox-close { transition: none; }
+  .bili-lightbox { animation: none; }
+}
