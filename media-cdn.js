@@ -11,7 +11,7 @@
   /* ============================================================
    *  ↓↓↓  只需要改这一行  ↓↓↓
    * ============================================================ */
-  const MEDIA_BASE = "";
+  const MEDIA_BASE = "https://alistair2567-portfolio.oss-cn-hangzhou.aliyuncs.com";
   // 例如：const MEDIA_BASE = "https://alistair-media.oss-cn-hangzhou.aliyuncs.com";
   /* ============================================================ */
 
@@ -40,6 +40,45 @@
 
     // 图片（HUD 设计稿等）同样走加速
     document.querySelectorAll("img[src]").forEach((img) => rewrite(img, "src"));
+
+    // CSS 里的背景图（background:url("media/...")）也改写到新地址
+    rewriteCss();
+  };
+
+  // 遍历样式表，把 url("media/xxx") 换成新地址。跨域样式表读不到 cssRules，跳过即可。
+  const rewriteCss = () => {
+    const fix = (text) =>
+      text.replace(/url\(\s*(["']?)(media\/[^"')]+)\1\s*\)/g, (m, q, path) => `url(${q}${base}/${path}${q})`);
+
+    const walk = (rules) => {
+      for (const rule of rules) {
+        if (rule.cssRules && rule.cssRules.length) {
+          walk(rule.cssRules);
+          continue;
+        }
+        const style = rule.style;
+        if (!style) continue;
+        for (const prop of ["backgroundImage", "background", "borderImage", "content"]) {
+          const value = style.getPropertyValue(
+            prop.replace(/[A-Z]/g, (c) => "-" + c.toLowerCase())
+          );
+          if (value && value.includes("media/")) {
+            style.setProperty(
+              prop.replace(/[A-Z]/g, (c) => "-" + c.toLowerCase()),
+              fix(value)
+            );
+          }
+        }
+      }
+    };
+
+    for (const sheet of document.styleSheets) {
+      try {
+        if (sheet.cssRules && sheet.cssRules.length) walk(sheet.cssRules);
+      } catch {
+        // 跨域样式表受同源策略限制，忽略
+      }
+    }
   };
 
   if (document.readyState === "loading") {
