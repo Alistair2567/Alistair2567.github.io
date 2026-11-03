@@ -1,0 +1,67 @@
+.hud-supplement { border-top:1px solid var(--line); }
+.hud-project-card { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:32px; align-items:center; margin-top:20px; padding:26px; border:1px solid var(--line); border-radius:9px; background:var(--surface); }
+.hud-project-preview { display:block; overflow:hidden; border-radius:6px; background:var(--media); }
+.hud-project-preview img { width:100%; height:auto; }
+.hud-project-preview>span { display:block; padding:11px 14px; color:#ede6db; font-size:13px; }
+.hud-project-copy h2 { margin:0; font-size:clamp(1.7rem,2.5vw,2rem); line-height:1.4; letter-spacing:-.025em; }
+.hud-project-copy>p { font-size:15px; }
+.hud-project-copy .tag-list { gap:6px; margin-block:15px; }
+.hud-project-copy .tag-list li { padding:3px 8px; font-size:11px; }
+.hud-project-copy .actions { gap:9px; margin-top:20px; }
+.hud-project-copy .button { padding:9px 12px; font-size:13px; }
+.hud-state { color:var(--gold-deep); font-size:14px; font-weight:700; }
+.hud-detail-link { display:inline-block; margin-top:15px; border-bottom:1px solid var(--gold); color:var(--gold-deep); font-size:14px; font-weight:700; }
+.hud-intro { padding:40px 0 44px; background:var(--paper); }
+.hud-back-link { display:inline-block; margin-bottom:26px; color:var(--muted); font-size:13px; border-bottom:1px solid var(--line); }
+.hud-intro h1 { margin:10px 0 20px; font-size:clamp(2rem,3.6vw,3rem); line-height:1.25; letter-spacing:-.035em; }
+.hud-intro h1>span { white-space:nowrap; }
+.hud-intro .lead { max-width:850px; margin-top:22px; }
+.hud-scope,.hud-caption-note { color:var(--muted); font-size:13px; line-height:1.7; }
+.hud-scope { margin-top:22px; }
+.hud-section { padding:52px 0; border-top:1px solid var(--line); }
+.hud-section .section-head { margin-bottom:24px; }
+.hud-section h2 { margin-top:0; font-size:clamp(1.7rem,3vw,2.25rem); }
+.hud-section .section-head>p:not(.eyebrow) { color:var(--muted); font-size:15px; }
+.hud-figure { min-width:0; margin:0; }
+.hud-image-link { position:relative; display:block; overflow:hidden; border:1px solid var(--line); border-radius:7px; background:var(--media); cursor:zoom-in; }
+.hud-image-link img { width:100%; height:auto; object-fit:contain; }
+.hud-image-link:focus-visible { outline-offset:4px; }
+.hud-image-hint { position:absolute; right:10px; bottom:10px; padding:4px 10px; border:1px solid rgba(255,255,255,.24); border-radius:4px; background:rgba(12,14,18,.86); color:#fff; font-size:12px; pointer-events:none; }
+.hud-figure figcaption { padding-top:12px; }
+.hud-figure figcaption strong { display:block; color:var(--ink); font-size:16px; }
+.hud-figure figcaption>span { display:block; margin-top:4px; color:var(--muted); font-size:14px; }
+.hud-preview-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; margin-top:28px; }
+.hud-preview-pair .hud-image-link img { aspect-ratio:16/9; }
+.hud-more { margin-top:30px; border-block:1px solid var(--line); }
+.hud-more summary { padding:17px 0; cursor:pointer; color:var(--gold-deep); font-size:15px; font-weight:700; }
+.hud-secondary-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; padding:8px 0 25px; }
+.hud-caption-note { margin:20px 0 0; }
+.hud-decisions { background:var(--paper); }
+.hud-decision { display:grid; grid-template-columns:minmax(200px,.8fr) minmax(0,1.7fr); gap:36px; padding:26px 0; border-top:1px solid var(--line); }
+.hud-decision h3 { margin:0; font-size:22px; line-height:1.5; }
+.hud-decision dl { margin:0; }
+.hud-decision dl>div { display:grid; grid-template-columns:42px minmax(0,1fr); gap:14px; margin-bottom:13px; }
+.hud-decision dl>div:last-child { margin-bottom:0; }
+.hud-decision dt { color:var(--gold-deep); font-size:14px; font-weight:800; }
+.hud-decision dd { margin:0; font-size:15px; line-height:1.8; }
+.hud-delivery-layout { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:46px; }
+.hud-deliverables { padding-left:20px; font-size:15px; line-height:2; }
+.hud-delivery-layout p { font-size:15px; }
+.hud-contribution { align-self:start; padding:24px; border-left:2px solid var(--gold); background:var(--paper); }
+.hud-contribution h3 { margin-top:0; font-size:20px; }
+.hud-contribution p:last-child { margin-bottom:0; }
+.hud-end-links { display:flex; flex-wrap:wrap; align-items:center; gap:12px; padding-bottom:52px; }
+.hud-end-links .hud-detail-link { margin:0 0 0 auto; }
+.hud-lightbox { width:min(calc(100% - 24px),1440px); max-width:none; max-height:94svh; padding:0; border:1px solid var(--line); border-radius:8px; background:var(--paper); color:var(--ink); }
+.hud-lightbox::backdrop { background:rgba(6,9,14,.86); }
+.hud-lightbox-bar { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; padding:14px 18px; }
+.hud-lightbox-bar h2 { margin:0; font-size:16px; }
+.hud-lightbox-bar>div { display:flex; gap:8px; }
+.hud-lightbox button { min-height:40px; padding:7px 12px; border:1px solid var(--line); border-radius:5px; background:#fff; color:var(--ink); cursor:pointer; font-size:14px; }
+.hud-lightbox-help { margin:0; padding:0 18px 12px; color:var(--muted); font-size:12px; }
+.hud-lightbox-stage { overflow:auto; max-height:calc(94svh - 135px); background:var(--media); overscroll-behavior:contain; }
+.hud-lightbox-stage img { width:auto; max-width:100%; height:auto; margin-inline:auto; }
+.hud-lightbox.is-actual .hud-lightbox-stage img { max-width:none; }
+@media(max-width:980px) { .hud-project-card { gap:24px; padding:22px; } .hud-project-copy h2 { font-size:1.6rem; } .hud-decision { grid-template-columns:minmax(180px,.8fr) minmax(0,1.7fr); gap:25px; } }
+@media(max-width:720px) { .hud-project-card,.hud-preview-pair,.hud-secondary-grid,.hud-decision,.hud-delivery-layout { grid-template-columns:1fr; } .hud-project-card { padding:16px; gap:24px; } .hud-project-copy h2 { font-size:1.6rem; } .hud-intro { padding:28px 0 34px; } .hud-intro h1 { font-size:clamp(1.8rem,7.8vw,2.4rem); } .hud-intro .lead { font-size:18px; } .hud-intro .tag-list { gap:7px; } .hud-section { padding:38px 0; } .hud-decision { gap:16px; padding:23px 0; } .hud-decision h3 { font-size:21px; } .hud-decision dl>div { gap:8px; } .hud-delivery-layout { gap:26px; } .hud-end-links { padding-bottom:38px; } .hud-end-links .hud-detail-link { margin-left:0; } .hud-lightbox-bar { padding:12px; } .hud-lightbox-bar h2 { font-size:14px; } .hud-lightbox-help { padding-inline:12px; } }
+@media(max-width:400px) { .hud-project-copy .actions,.hud-intro .actions { flex-direction:column; align-items:stretch; } }

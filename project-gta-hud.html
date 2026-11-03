@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GTA Online 移动操控 HUD 个人适配练习：双拇指布局、驾乘与掩体状态、输入取消规则及开发规格。设计稿已完成，待引擎接入与真机验证。">
+  <meta name="robots" content="noindex,nofollow,noarchive"><title>《GTA Online》移动操控 HUD 适配设计｜游戏策划作品集</title>
+  <link rel="icon" href="data:,"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="hud.css">
+</head>
+<body data-page="hud">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header"><div class="shell header-inner"><a class="brand" href="index.html">战斗策划作品集</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>菜单</button><nav class="site-nav" id="site-nav" aria-label="主导航" data-site-nav><a href="index.html" data-nav="home">首页</a><a href="project-yongzhe.html" data-nav="project">项目</a><a href="about.html#about" data-nav="about">关于我</a><a href="about.html#contact">联系方式</a></nav></div></header>
+  <main id="main">
+    <section class="hud-intro"><div class="shell">
+      <a class="hud-back-link" href="index.html#hud-project">返回作品首页</a>
+      <p class="eyebrow">补充作品 · 交互与开发规格</p>
+      <h1><span>《GTA Online》</span><br>移动操控 HUD 适配设计</h1>
+      <ul class="tag-list" aria-label="项目标签"><li>个人策划练习</li><li>移动端交互</li><li>HUD设计</li><li>Figma</li><li>AI辅助</li></ul>
+      <p class="lead">让玩家使用两只拇指完成主要战斗与驾乘操作，同时保留观察角色、敌人与环境的空间。</p>
+      <p class="hud-state">设计稿与开发规格已完成，待引擎接入及真机验证。</p>
+      <div class="actions"><a class="button" href="https://www.figma.com/design/s5nlx5H127GM0QrXdXETJU" target="_blank" rel="noopener noreferrer">查看 Figma 设计稿</a><a class="button secondary" href="https://my.feishu.cn/docx/THkedir4lo0fwCxDfVockC2lnsf" target="_blank" rel="noopener noreferrer">阅读完整策划文档</a></div>
+      <p class="hud-scope">基于现有游戏玩法的个人适配练习，非 Rockstar 官方项目、商业项目或已上线手游。</p>
+    </div></section>
+
+    <section class="hud-section" aria-labelledby="preview-title"><div class="shell">
+      <div class="section-head"><h2 id="preview-title">从主布局到操作状态</h2><p>以下为实际 Figma 导出。点击图片可放大，并切换原尺寸查看细节。</p></div>
+      <figure class="hud-figure hud-figure-main">
+        <a class="hud-image-link" href="media/hud/overview.png" target="_blank" rel="noopener" data-hud-image data-caption="主效果图 · 双拇指操作布局"><img src="media/hud/overview.png" width="1280" height="720" fetchpriority="high" alt="主效果图：左下移动，右侧射击、瞄准、贴靠、跳跃，并保留驾驶和乘坐双入口"><span class="hud-image-hint">放大查看</span></a>
+        <figcaption><strong>主效果图</strong><span>高频动作保留稳定入口，低频功能置于顶部或二级面板。</span></figcaption>
+      </figure>
+      <div class="hud-preview-pair">
+        <figure class="hud-figure"><a class="hud-image-link" href="media/hud/touch-zones.png" target="_blank" rel="noopener" data-hud-image data-caption="热区标注 · 控件编号与输入边界"><img src="media/hud/touch-zones.png" width="1280" height="720" loading="lazy" decoding="async" alt="热区标注：以编号和虚线框标出移动、射击、驾乘等控件的输入区域"><span class="hud-image-hint">放大查看</span></a><figcaption><strong>热区标注</strong><span>控件编号与开发规格对应，区分显示区域与触点归属。</span></figcaption></figure>
+        <figure class="hud-figure"><a class="hud-image-link" href="media/hud/driving.png" target="_blank" rel="noopener" data-hud-image data-caption="驾驶状态 · 按座位角色替换操作组"><img src="media/hud/driving.png" width="1424" height="1056" loading="lazy" decoding="async" alt="驾驶状态图：左侧转向，右侧分设刹车、油门、手刹、射击和下车，场景为自绘矢量示意"><span class="hud-image-hint">放大查看</span></a><figcaption><strong>驾驶状态</strong><span>按座位角色替换操作组；刹车与油门独立，旧触点不接管新动作。</span></figcaption></figure>
+      </div>
+      <details class="hud-more"><summary>其他关键状态 · 3 张设计图</summary><div class="hud-secondary-grid">
+        <figure class="hud-figure"><a class="hud-image-link" href="media/hud/weapon-panel.png" target="_blank" rel="noopener" data-hud-image data-caption="武器选择 · 请求与结果分离"><img src="media/hud/weapon-panel.png" width="1424" height="1056" loading="lazy" decoding="async" alt="武器选择面板：点击有效武器提交切换请求，在线世界继续运行"><span class="hud-image-hint">放大查看</span></a><figcaption><strong>武器选择</strong><span>选择提交请求，收到成功回执后关闭。</span></figcaption></figure>
+        <figure class="hud-figure"><a class="hud-image-link" href="media/hud/supply-panel.png" target="_blank" rel="noopener" data-hud-image data-caption="快捷补给 · 库存与结果回执"><img src="media/hud/supply-panel.png" width="1424" height="1056" loading="lazy" decoding="async" alt="快捷补给面板：按库存显示零食和护甲，待回执时锁定同物品请求"><span class="hud-image-hint">放大查看</span></a><figcaption><strong>快捷补给</strong><span>按库存与能力校验，失败保留原库存。</span></figcaption></figure>
+        <figure class="hud-figure"><a class="hud-image-link" href="media/hud/compact-layout.png" target="_blank" rel="noopener" data-hud-image data-caption="紧凑布局 · 小屏重排示意"><img src="media/hud/compact-layout.png" width="1424" height="1056" loading="lazy" decoding="async" alt="紧凑布局示意：低频功能收进菜单，重排驾乘与动作入口，保留触控尺寸"><span class="hud-image-hint">放大查看</span></a><figcaption><strong>紧凑布局</strong><span>重排控件而非整体缩小；仍需真实设备验证。</span></figcaption></figure>
+      </div></details>
+      <p class="hud-caption-note">游戏场景画面来自《GTA Online》，用于非官方适配设计示意；HUD 布局与交互规则为本次设计成果。数值为展示样例，驾驶场景为自绘矢量示意。</p>
+    </div></section>
+
+    <section class="hud-section hud-decisions" aria-labelledby="decisions-title"><div class="shell">
+      <div class="section-head"><p class="eyebrow">设计判断</p><h2 id="decisions-title">三项关键取舍</h2></div>
+      <div class="hud-decision-list">
+        <article class="hud-decision"><h3>驾驶与乘坐：先表达座位角色</h3><dl><div><dt>问题</dt><dd>单一“上车”入口没有区分想驾驶还是想乘坐；按下到抬起之间，目标或座位也可能失效。</dd></div><div><dt>方案</dt><dd>驾驶、乘坐分别提供入口。按下锁定车辆与座位，抬起再次校验；失败说明原因，不自动改投其他座位。</dd></div><div><dt>理由</dt><dd>将玩家意图与动作结果分开，避免系统替玩家选择另一种座位角色。</dd></div></dl></article>
+        <article class="hud-decision"><h3>贴靠与探身：区分位置与瞄准意图</h3><dl><div><dt>问题</dt><dd>“掩体”容易同时指进入掩体、离开掩体或探头瞄准，按钮语义不明确。</dd></div><div><dt>方案</dt><dd>以“贴靠 / 离开”负责进入和退出，以“探身 / 收回”表达掩体内的瞄准意图；动作是否可执行由游戏能力判定。</dd></div><div><dt>理由</dt><dd>先明确操作意图，再由状态决定可用动作，不把位置变化和瞄准行为混为一个按钮含义。</dd></div></dl></article>
+        <article class="hud-decision"><h3>状态切换：清除旧输入，不继承旧触点</h3><dl><div><dt>问题</dt><dd>触点滑过相邻控件，或步行中切到驾乘、面板等状态时，旧输入可能残留或被误解释。</dd></div><div><dt>方案</dt><dd>按下后固定触点归属。入车、死亡、失焦或打开阻断面板时清除旧输入，关闭面板后不恢复旧按压状态。</dd></div><div><dt>理由</dt><dd>让每个新状态从明确的输入边界开始，防止松手后续射、旧触点变成油门等动作残留；实际效果待接入后验证。</dd></div></dl></article>
+      </div>
+    </div></section>
+
+    <section class="hud-section" aria-labelledby="delivery-title"><div class="shell hud-delivery-layout">
+      <div><h2 id="delivery-title">交付成果与验证边界</h2><ul class="hud-deliverables"><li>Figma 可编辑 HUD 设计稿</li><li>主效果、热区标注及关键状态，共 6 张设计图</li><li>控件、状态、输入取消与异常反馈的开发规格文档</li><li>26 条等待实现后验证的验收用例</li></ul><p class="hud-state">设计稿与开发规格已完成，待引擎接入及真机验证。</p><p>当前成果是静态设计与开发规格，不是可运行游戏或完整可点击原型。尚未完成引擎接入、真机或用户测试，26 条运行验收尚未执行。</p></div>
+      <aside class="hud-contribution"><h3>本人贡献与 AI 协作</h3><p>前期框架与原型草图由我绘制；我负责需求方向、设计判断、方案审阅及修改取舍，并操作插件和导出文件。</p><p>AI 辅助资料整理、规则细化、矢量组件、Figma 制作与文档整理。我审阅并修正驾乘入口含义、掩体动作命名，以及图标圆心、间距与文字区。</p></aside>
+    </div></section>
+    <div class="shell hud-end-links"><a class="button" href="https://www.figma.com/design/s5nlx5H127GM0QrXdXETJU" target="_blank" rel="noopener noreferrer">查看 Figma 设计稿</a><a class="button secondary" href="https://my.feishu.cn/docx/THkedir4lo0fwCxDfVockC2lnsf" target="_blank" rel="noopener noreferrer">阅读完整策划文档</a><a class="hud-detail-link" href="project-yongzhe.html">查看核心作品《三相之刃》</a></div>
+  </main>
+  <footer class="footer"><div class="shell footer-inner"><span>游戏策划作品集 · 个人 HUD 适配练习</span><a href="index.html#hud-project">返回作品首页</a></div></footer>
+  <button class="back-to-top" type="button" data-back-to-top aria-label="返回顶部">↑ <span>返回顶部</span></button>
+  <dialog class="hud-lightbox" aria-labelledby="hud-lightbox-title"><div class="hud-lightbox-bar"><h2 id="hud-lightbox-title">设计图放大查看</h2><div><button type="button" data-hud-size aria-pressed="false">原尺寸查看</button><button type="button" data-hud-close>关闭</button></div></div><p class="hud-lightbox-help">可切换原尺寸，再横向或纵向滚动查看细节；按 Esc 关闭。</p><div class="hud-lightbox-stage" tabindex="0" aria-label="设计图细节，可使用方向键滚动"><img alt=""></div></dialog>
+  <script src="script.js"></script><script src="hud.js" defer></script>
+</body></html>
