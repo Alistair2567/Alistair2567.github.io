@@ -37,6 +37,9 @@
       // 已经带 src 的视频（首屏那个）需要重新加载才会走新地址
       if (video.getAttribute("src")) video.load();
     });
+
+    // 图片（HUD 设计稿等）同样走加速
+    document.querySelectorAll("img[src]").forEach((img) => rewrite(img, "src"));
   };
 
   if (document.readyState === "loading") {
